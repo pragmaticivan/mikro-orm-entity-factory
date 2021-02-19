@@ -1,4 +1,4 @@
-import { EntityManager, MikroORM } from '@mikro-orm/core';
+import { Connection, EntityManager, IDatabaseDriver, MikroORM } from '@mikro-orm/core';
 import { FactoryContainer } from 'src/factory-container';
 import { GenreFactory } from './sample/factories/genre-factory';
 import { BookFactory } from './sample/factories/book-factory';
@@ -16,11 +16,11 @@ export const getConnectionOrm = async () => {
   return MikroORM.init({
     type: 'postgresql',
     host: process.env.ENVIRONMENT === 'ci' ? 'localhost' : 'localhost',
-    port: 5435,
+    port: 5432,
     user: 'postgres',
     password: 'example',
     dbName: 'postgres',
-    debug: true,
+    debug: false,
     entities: [Book, Genre, Author],
   });
 };
@@ -57,12 +57,18 @@ export const clearDB = async (em: EntityManager): Promise<void> => {
   try {
     for await (const entity of getDBEntities(em)) {
       const repository = em.getRepository(entity.name);
-      await repository.removeAndFlush({});
+      await repository.nativeDelete({});
     }
   } catch (err) {
     throw new Error(`ERROR: Cleaning test db: ${err}`);
   }
 };
+
+export const loadSchema = async (orm: MikroORM<IDatabaseDriver<Connection>>): Promise<void> => {
+  const generator = orm.getSchemaGenerator();
+  await generator.dropSchema();
+  await generator.createSchema();
+}
 
 /**
  * Get a stub factory container for testing

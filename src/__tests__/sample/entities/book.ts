@@ -5,11 +5,12 @@ import {
   ManyToOne,
 } from '@mikro-orm/core';
 import { Genre } from './genre';
+import { v4 } from 'uuid';
 
 @Entity()
 export class Book {
   @PrimaryKey()
-  id: string;
+  id: string = v4();
 
   @Property({
     length: 255,

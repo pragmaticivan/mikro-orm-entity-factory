@@ -16,19 +16,15 @@ describe('entity-factory', () => {
     orm = await getConnectionOrm();
     em = orm.em;
     container = await getContainer(orm.em);
-    console.log('dd', container)
   });
 
-  // afterEach(async () => clearDB(em));
+  afterAll(async () => {
+    if (await orm.isConnected()) {
+      await orm.close();
+    }
+  });
 
-  // afterAll(async () => {
-  //   await clearDB(em);
-  //   if (await orm.isConnected()) {
-  //     await orm.close();
-  //   }
-  // });
-
-  it.only('can provide for factories with init()', async () => {
+  it('can provide for factories with init()', async () => {
     const bookFactory = container.getFactory(Book);
     const genreFactory = container.getFactory(Genre);
     const authorFactory = container.getFactory(Author);

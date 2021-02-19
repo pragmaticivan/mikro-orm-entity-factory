@@ -1,9 +1,10 @@
 import { Entity, PrimaryKey, Property } from '@mikro-orm/core';
+import { v4 } from 'uuid';
 
 @Entity()
 export class Genre {
   @PrimaryKey()
-  id: string;
+  id: string = v4();
 
   @Property({
     length: 255,
