@@ -24,7 +24,7 @@ services:
     environment:
       POSTGRES_PASSWORD: example
     ports:
-      - '5435:5432'
+      - '5432'
     networks:
       - backend
 

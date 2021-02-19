@@ -15,7 +15,7 @@ import { Book } from './sample/entities/book';
 export const getConnectionOrm = async () => {
   return MikroORM.init({
     type: 'postgresql',
-    host: process.env.ENVIRONMENT === 'ci' ? 'localhost' : 'localhost',
+    host: process.env.ENVIRONMENT === 'ci' ? 'localhost' : 'db',
     port: 5432,
     user: 'postgres',
     password: 'example',
