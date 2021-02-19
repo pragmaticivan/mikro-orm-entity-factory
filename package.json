@@ -16,7 +16,7 @@
     "test:ci": "ENVIRONMENT=ci jest --ci --runInBand",
     "test:coverage": "jest --coverage",
     "lint": "eslint . --ext .js,ts",
-    "lint:fix": "eslint . --ext .js,ts --fix"
+    "format": "eslint . --ext .js,ts --fix"
   },
   "keywords": [
     "mikroorm",
@@ -33,31 +33,31 @@
     "lib"
   ],
   "dependencies": {
-    "faker": "4.1.0",
-    "@mikro-orm/core": "^4.4.1",
-    "@types/faker": "4.1.9"
+    "faker": "5.4.0",
+    "@mikro-orm/core": "^4.4.3",
+    "@types/faker": "5.1.7"
   },
   "devDependencies": {
     "@mikro-orm/postgresql": "^4.4.3",
-    "@types/jest": "24.9.1",
-    "@types/node": "13.1.8",
+    "@types/jest": "26.0.20",
+    "@types/node": "14.14.31",
     "@types/uuid": "^8.3.0",
-    "@typescript-eslint/eslint-plugin": "2.21.0",
-    "@typescript-eslint/parser": "2.21.0",
-    "eslint": "6.8.0",
-    "eslint-config-airbnb-typescript": "7.0.0",
+    "@typescript-eslint/eslint-plugin": "4.15.1",
+    "@typescript-eslint/parser": "4.15.1",
+    "eslint": "7.20.0",
+    "eslint-config-airbnb-typescript": "12.3.1",
     "eslint-plugin-import": "2.22.1",
-    "husky": "4.2.3",
-    "jest": "25.1.0",
-    "jest-junit": "10.0.0",
-    "lint-staged": "10.0.8",
+    "husky": "5.0.9",
+    "jest": "26.6.3",
+    "jest-junit": "12.0.0",
+    "lint-staged": "10.5.4",
     "mysql": "2.18.1",
-    "pg": "7.18.1",
-    "prettier": "1.19.1",
-    "pretty-quick": "2.0.1",
-    "ts-jest": "25.0.0",
-    "ts-node": "8.6.2",
-    "typescript": "3.7.5",
+    "pg": "8.5.1",
+    "prettier": "2.2.1",
+    "pretty-quick": "3.1.0",
+    "ts-jest": "26.5.1",
+    "ts-node": "9.1.1",
+    "typescript": "4.1.5",
     "uuid": "^8.3.2"
   },
   "husky": {

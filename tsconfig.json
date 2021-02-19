@@ -5,8 +5,15 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "lib": ["es2017", "es7", "es6", "dom"],
-    "types": ["node", "jest"],
+    "lib": [
+      "es2017",
+      "es7",
+      "es6"
+    ],
+    "types": [
+      "node",
+      "jest"
+    ],
     "declaration": true,
     "outDir": "lib",
     "rootDir": "src",
@@ -17,9 +24,17 @@
     "downlevelIteration": true,
     "baseUrl": ".",
     "paths": {
-      "src/*": ["src/*"]
+      "src/*": [
+        "src/*"
+      ]
     }
   },
-  "exclude": ["lib", "node_modules", "examples"],
-  "include": ["src"]
+  "exclude": [
+    "lib",
+    "node_modules",
+    "examples"
+  ],
+  "include": [
+    "src"
+  ]
 }

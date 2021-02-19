@@ -2,6 +2,7 @@ module.exports = {
   extends: ['airbnb-typescript/base'],
   parserOptions: {
     project: './tsconfig.json',
+    createDefaultProgram: true,
   },
   rules: {
     'import/prefer-default-export': 'off',
