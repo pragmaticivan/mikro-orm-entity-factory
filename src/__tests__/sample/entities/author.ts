@@ -1,11 +1,8 @@
 import {
-  Entity,
-  PrimaryKey,
-  Property,
-  ManyToMany,
+  Entity, PrimaryKey, Property, ManyToMany,
 } from '@mikro-orm/core';
-import { Book } from './book';
 import { v4 } from 'uuid';
+import { Book } from './book';
 
 @Entity()
 export class Author {
@@ -14,16 +11,16 @@ export class Author {
 
   @Property({
     length: 255,
-    name: 'first_name'
+    name: 'first_name',
   })
   firstName: string;
 
   @Property({
     length: 255,
-    name: 'last_name'
+    name: 'last_name',
   })
   lastName: string;
 
-  @ManyToMany({entity: () => Book})
+  @ManyToMany({ entity: () => Book })
   books: Book[];
 }

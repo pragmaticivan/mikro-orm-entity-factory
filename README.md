@@ -25,8 +25,8 @@ const container = await FactoryContainer.init({
     // An array of factory classes for bulk creating entities
     BookFactory,
     AuthorFactory,
-    GenreFactory,
-  ],
+    GenreFactory
+  ]
 });
 
 /** Retrieve the factories */
@@ -100,7 +100,7 @@ const books = await bookFactory.saveMany(5);
 
 /** Pass in optional override values to generate specific data */
 const programmingGenre = await genreFactory.saveOne({
-  name: 'Programming',
+  name: "Programming"
 });
 /**
  * Genre {
@@ -111,7 +111,7 @@ const programmingGenre = await genreFactory.saveOne({
 
 /** Combine factories for bulk relational data */
 const programmingBooks = await bookFactory.saveMany(10, {
-  genre: programmingGenre,
+  genre: programmingGenre
 });
 /**
  * [
@@ -160,51 +160,50 @@ These map to the following MikroORM entities:
 ```typescript
 @Entity()
 export class Author {
-    @PrimaryKey()
-    id: string = v4();
+  @PrimaryKey()
+  id: string = v4();
 
-    @Property({
-        length: 255,
-        name: 'first_name'
-    })
-    firstName: string;
+  @Property({
+    length: 255,
+    name: "first_name"
+  })
+  firstName: string;
 
-    @Property({
-        length: 255,
-        name: 'last_name'
-    })
-    lastName: string;
+  @Property({
+    length: 255,
+    name: "last_name"
+  })
+  lastName: string;
 
-    @ManyToMany({entity: () => Book})
-    books: Book[];
+  @ManyToMany({ entity: () => Book })
+  books: Book[];
 }
 
 @Entity()
 export class Book {
-    @PrimaryKey()
-    id: string = v4();
+  @PrimaryKey()
+  id: string = v4();
 
-    @Property({
-        length: 255,
-        name: 'title'
-    })
-    title: string;
+  @Property({
+    length: 255,
+    name: "title"
+  })
+  title: string;
 
-    @ManyToOne({entity: () => Genre})
-    genre: Genre;
+  @ManyToOne({ entity: () => Genre })
+  genre: Genre;
 }
-
 
 @Entity()
 export class Genre {
-    @PrimaryKey()
-    id: string = v4();
+  @PrimaryKey()
+  id: string = v4();
 
-    @Property({
-        length: 255,
-        name: 'name'
-    })
-    name: string;
+  @Property({
+    length: 255,
+    name: "name"
+  })
+  name: string;
 }
 ```
 
@@ -237,8 +236,8 @@ const container = FactoryContainer.init({
   em, // Your MikroORM database connection's entity manager
   factories: [
     // // An array of our entity factories
-    GenreFactory,
-  ],
+    GenreFactory
+  ]
 });
 ```
 
@@ -260,7 +259,7 @@ The factory class has two methods of interest makeOne() and makeMany(). These me
  * will be overridden automatically.
  */
 
-const genre = await genreFactory.saveOne({ name: 'Romance' });
+const genre = await genreFactory.saveOne({ name: "Romance" });
 
 /**
  * Create five genres with no overrides.
@@ -305,8 +304,8 @@ const container = FactoryContainer.init({
   em,
   factories: [
     GenreFactory,
-    BookFactory, // <<< Newly Added
-  ],
+    BookFactory // <<< Newly Added
+  ]
 });
 ```
 
@@ -320,12 +319,12 @@ const randomBooks = await bookFactory.saveMany(10);
 
 /** Pass in optional override values to generate specific data */
 const programmingGenre = await genreFactory.saveOne({
-  name: 'Programming',
+  name: "Programming"
 });
 
 /** Combine factories for bulk relational data */
 const programmingBooks = await bookFactory.saveMany(10, {
-  genre: programmingGenre,
+  genre: programmingGenre
 });
 ```
 
@@ -356,7 +355,7 @@ Just like the BookFactory and GenreFactory, we have to add this to container.
 ```typescript
 const container = FactoryContainer.init({
   em,
-  factories: [GenreFactory, BookFactory, AuthorFactory],
+  factories: [GenreFactory, BookFactory, AuthorFactory]
 });
 ```
 
@@ -409,12 +408,12 @@ This can be achieved with the `namespace key` parameter in the FactoryFor decora
 For example, if we wanted to have a more specialized version of the AuthorFactory called FamousAuthorFactory.
 
 ```typescript
-import { Author } from 'src/tests/sample/entities/author';
-import { EntityFactory } from 'src/entity-factory';
-import { FactoryFor } from 'src/factory-for.decorator';
-import { Book } from 'src/tests/sample/entities/book';
+import { Author } from "src/tests/sample/entities/author";
+import { EntityFactory } from "src/entity-factory";
+import { FactoryFor } from "src/factory-for.decorator";
+import { Book } from "src/tests/sample/entities/book";
 
-@FactoryFor(Author, 'famous') /** <-- Additional optional param */
+@FactoryFor(Author, "famous") /** <-- Additional optional param */
 export class FamousAuthorFactory extends EntityFactory<Author> {
   /**
    * @inheritdoc
@@ -429,30 +428,29 @@ export class FamousAuthorFactory extends EntityFactory<Author> {
     const firstDigit: number = parseInt(author.id.charAt(0), 10);
 
     if (firstDigit % 2 === 0) {
-      author.firstName = 'Kurt';
-      author.lastName = 'Vonnegut';
+      author.firstName = "Kurt";
+      author.lastName = "Vonnegut";
       const book1 = await bookFactory.saveOne({
-        title: 'Slaughterhouse 5' 
+        title: "Slaughterhouse 5"
       });
-      const book2 = await bookFactory.saveOne({ 
-        title: 'Cats Cradle' 
+      const book2 = await bookFactory.saveOne({
+        title: "Cats Cradle"
       });
       author.books = [book1, book2];
     } else {
-      author.firstName = 'Douglas';
-      author.lastName = 'Adams';
+      author.firstName = "Douglas";
+      author.lastName = "Adams";
       const book1 = await bookFactory.saveOne({
-        title: 'The Hitchhikers Guide to the Galaxy',
+        title: "The Hitchhikers Guide to the Galaxy"
       });
       const book2 = await bookFactory.saveOne({
-        title: 'The Restaurant at the End of the Universe',
+        title: "The Restaurant at the End of the Universe"
       });
       author.books = [book1, book2];
     }
     return author;
   }
 }
-
 ```
 
 When we want to retrieve the FamousAuthorFactory from the container, we
@@ -463,7 +461,7 @@ provide the namespace key.
 const authorFactory = container.getFactory(Author);
 
 /** This will retrieve the famous author factory **/
-const famousAuthorFactory = container.getFactory(Author, 'famous');
+const famousAuthorFactory = container.getFactory(Author, "famous");
 ```
 
 ## Examples
@@ -480,11 +478,11 @@ This repository uses docker-compose for it's local development. Please refer to 
 To use this repository for development:
 
 1. Clone the repository: `git clone https://github.com/pragmaticivan/mikro-orm-entity-factory`
-   
+
 2. Instantiate the development and database container: `docker-compose up -d` The development container is configured with npm and a test suite for experimenting with changes. The docker-compose.yml maps the src files into the container, changes made in your local repository will be reflected in the container.
 
 _Note_: Disregard installation errors for [husky](https://github.com/adamdubicki/typeorm-entity-factory/issues/5). Husky expects a git path, but the git path is not mounted into the docker container.
 
-3. You can then shell into the development container with `docker exec -it mikroorm-entity-factory /bin/bash`.
+3. You can then shell into the development container with `docker exec -it mikro-orm-entity-factory /bin/bash`.
 
 4. From within the container you can run the test suite with `npm run test`.

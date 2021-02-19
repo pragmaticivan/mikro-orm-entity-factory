@@ -1,5 +1,5 @@
 import { EntityFactory } from './entity-factory';
-import { IFactoryContainerOptions } from 'src/factory-container-options.interface';
+import { IFactoryContainerOptions } from './factory-container-options.interface';
 import { Type } from './utils';
 import { getFactoryFor } from './factory-for.decorator';
 

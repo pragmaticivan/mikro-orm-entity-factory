@@ -1,5 +1,10 @@
-import { Connection, EntityManager, IDatabaseDriver, MikroORM } from '@mikro-orm/core';
-import { FactoryContainer } from 'src/factory-container';
+import {
+  Connection,
+  EntityManager,
+  IDatabaseDriver,
+  MikroORM,
+} from '@mikro-orm/core';
+import { FactoryContainer } from '../factory-container';
 import { GenreFactory } from './sample/factories/genre-factory';
 import { BookFactory } from './sample/factories/book-factory';
 import { AuthorFactory } from './sample/factories/author-factory';
@@ -12,18 +17,16 @@ import { Book } from './sample/entities/book';
  * Get a sample database connection for a fake postgres database
  * @returns an instantiated database connection string
  */
-export const getConnectionOrm = async () => {
-  return MikroORM.init({
-    type: 'postgresql',
-    host: process.env.ENVIRONMENT === 'ci' ? 'localhost' : 'db',
-    port: 5432,
-    user: 'postgres',
-    password: 'example',
-    dbName: 'postgres',
-    debug: false,
-    entities: [Book, Genre, Author],
-  });
-};
+export const getConnectionOrm = async () => MikroORM.init({
+  type: 'postgresql',
+  host: process.env.ENVIRONMENT === 'ci' ? 'localhost' : 'db',
+  port: 5432,
+  user: 'postgres',
+  password: 'example',
+  dbName: 'postgres',
+  debug: false,
+  entities: [Book, Genre, Author],
+});
 
 /**
  * Get all of the database entities associated with a database connection
@@ -40,12 +43,11 @@ export const getDBEntities = (
     entities.push({
       // @ts-ignore
       name: metadata[key].name,
-      tableName: metadata[key].tableName
-    })
+      tableName: metadata[key].tableName,
+    });
   });
   return entities;
 };
-
 
 /**
  * Clear all database tables via connection
@@ -64,11 +66,13 @@ export const clearDB = async (em: EntityManager): Promise<void> => {
   }
 };
 
-export const loadSchema = async (orm: MikroORM<IDatabaseDriver<Connection>>): Promise<void> => {
+export const loadSchema = async (
+  orm: MikroORM<IDatabaseDriver<Connection>>,
+): Promise<void> => {
   const generator = orm.getSchemaGenerator();
   await generator.dropSchema();
   await generator.createSchema();
-}
+};
 
 /**
  * Get a stub factory container for testing

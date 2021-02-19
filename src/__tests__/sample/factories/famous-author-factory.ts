@@ -1,6 +1,6 @@
 import { Author } from '../entities/author';
-import { EntityFactory } from 'src/entity-factory';
-import { FactoryFor } from 'src/factory-for.decorator';
+import { EntityFactory } from '../../../entity-factory';
+import { FactoryFor } from '../../../factory-for.decorator';
 import { Book } from '../entities/book';
 
 @FactoryFor(Author, 'famous')

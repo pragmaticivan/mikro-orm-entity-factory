@@ -1,11 +1,8 @@
 import {
-  Entity,
-  PrimaryKey,
-  Property,
-  ManyToOne,
+  Entity, PrimaryKey, Property, ManyToOne,
 } from '@mikro-orm/core';
-import { Genre } from './genre';
 import { v4 } from 'uuid';
+import { Genre } from './genre';
 
 @Entity()
 export class Book {
@@ -14,10 +11,10 @@ export class Book {
 
   @Property({
     length: 255,
-    name: 'title'
+    name: 'title',
   })
   title: string;
 
-  @ManyToOne({entity: () => Genre})
+  @ManyToOne({ entity: () => Genre })
   genre: Genre;
 }

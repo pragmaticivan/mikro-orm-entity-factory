@@ -1,13 +1,23 @@
 import * as faker from 'faker';
-import { Connection, EntityManager, IDatabaseDriver, MikroORM } from '@mikro-orm/core';
-import { clearDB, getContainer, getConnectionOrm, loadSchema } from './test-utils';
+import {
+  Connection,
+  EntityManager,
+  IDatabaseDriver,
+  MikroORM,
+} from '@mikro-orm/core';
+import {
+  clearDB,
+  getContainer,
+  getConnectionOrm,
+  loadSchema,
+} from './test-utils';
 import { Book } from './sample/entities/book';
 import { BookFactory } from './sample/factories/book-factory';
-import { FactoryContainer } from 'src/factory-container';
+import { FactoryContainer } from '../factory-container';
 
 describe('entity-factory', () => {
   let bookFactory: BookFactory;
-  let orm: MikroORM<IDatabaseDriver<Connection>>
+  let orm: MikroORM<IDatabaseDriver<Connection>>;
   let em: EntityManager;
   let container: FactoryContainer;
 
@@ -36,12 +46,13 @@ describe('entity-factory', () => {
         expect(book.title).toBeDefined();
         expect(book.genre).toBeDefined();
 
-        const [
-          savedBooks,
-          savedBooksCount,
-        ] = await em.findAndCount(Book, {}, {
-          populate: ['genre'],
-        });
+        const [savedBooks, savedBooksCount] = await em.findAndCount(
+          Book,
+          {},
+          {
+            populate: ['genre'],
+          },
+        );
 
         /** Check that the database has been updated with the new book */
         expect(savedBooksCount).toBe(1);
@@ -67,12 +78,9 @@ describe('entity-factory', () => {
         expect(book).toBeDefined();
         expect(book.title).toEqual(BOOK_TITLE);
 
-        const [savedBooks, count] = await em.findAndCount(
-          Book,
-          {
-            title: BOOK_TITLE,
-          }
-        );
+        const [savedBooks, count] = await em.findAndCount(Book, {
+          title: BOOK_TITLE,
+        });
         expect(count).toBe(BOOK_COUNT + 1);
 
         savedBooks.forEach(savedBook => {
@@ -97,10 +105,7 @@ describe('entity-factory', () => {
           expect(book.title).toBeDefined();
         });
 
-        const [
-          savedBooks,
-          savedBooksCount,
-        ] = await em.findAndCount(Book, {});
+        const [savedBooks, savedBooksCount] = await em.findAndCount(Book, {});
 
         /** Check that the saved books are saved and defined */
         expect(savedBooksCount).toEqual(BOOKS_COUNT);

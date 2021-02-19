@@ -8,7 +8,7 @@ export class Genre {
 
   @Property({
     length: 255,
-    name: 'name'
+    name: 'name',
   })
   name: string;
 }

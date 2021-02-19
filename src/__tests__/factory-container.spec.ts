@@ -1,5 +1,10 @@
-import { Connection, EntityManager, IDatabaseDriver, MikroORM } from '@mikro-orm/core';
-import { FactoryContainer } from 'src/factory-container';
+import {
+  Connection,
+  EntityManager,
+  IDatabaseDriver,
+  MikroORM,
+} from '@mikro-orm/core';
+import { FactoryContainer } from '../factory-container';
 import { getConnectionOrm, clearDB, getContainer } from './test-utils';
 import { Book } from './sample/entities/book';
 import { Genre } from './sample/entities/genre';
@@ -8,7 +13,7 @@ import { Author } from './sample/entities/author';
 class FakeEntity {}
 
 describe('entity-factory', () => {
-  let orm: MikroORM<IDatabaseDriver<Connection>>
+  let orm: MikroORM<IDatabaseDriver<Connection>>;
   let em: EntityManager;
   let container: FactoryContainer;
 
