@@ -1,5 +1,5 @@
 
-FROM node:12-slim
+FROM node:14-slim
 
 ENV PATH $PATH:/usr/src/app/node_modules/.bin
 
