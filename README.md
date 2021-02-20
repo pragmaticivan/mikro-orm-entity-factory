@@ -3,8 +3,8 @@
 </p>
 
 [![Actions Status](https://github.com/pragmaticivan/mikro-orm-entity-factory/workflows/nodejs-tests/badge.svg)](https://github.com/{owner}/{repo}/actions)
-<a href="https://www.npmjs.com/~mikro-entity-factory" target="_blank">
-<img src="https://img.shields.io/npm/dw/mikroorm-entity-factory" alt="NPM Downloads" />
+<a href="https://www.npmjs.com/mikro-orm-entity-factory" target="_blank">
+<img src="https://img.shields.io/npm/dw/mikro-orm-entity-factory" alt="NPM Downloads" />
 </a>
 
 A module for saving bulk entities for E2E database testing.
