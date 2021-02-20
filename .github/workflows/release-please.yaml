@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - main
+      - master
 name: release-please
 jobs:
   release-please:
@@ -12,4 +12,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: mikro-orm-entity-factory
-          default-branch: main
