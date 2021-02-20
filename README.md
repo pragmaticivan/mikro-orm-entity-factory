@@ -481,8 +481,6 @@ To use this repository for development:
 
 2. Instantiate the development and database container: `docker-compose up -d` The development container is configured with npm and a test suite for experimenting with changes. The docker-compose.yml maps the src files into the container, changes made in your local repository will be reflected in the container.
 
-_Note_: Disregard installation errors for [husky](https://github.com/adamdubicki/typeorm-entity-factory/issues/5). Husky expects a git path, but the git path is not mounted into the docker container.
-
 3. You can then shell into the development container with `docker exec -it mikro-orm-entity-factory /bin/bash`.
 
 4. From within the container you can run the test suite with `npm run test`.
