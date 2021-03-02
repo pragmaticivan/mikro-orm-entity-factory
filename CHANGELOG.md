@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.0.4...v0.1.0) (2021-03-02)
+
+
+### Features
+
+* update local development ([fa42ce4](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/fa42ce4efe196efb31b213ce3a75adb2a3c6c31a))
+
 ### [0.0.4](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.0.3...v0.0.4) (2021-03-02)
 
 
