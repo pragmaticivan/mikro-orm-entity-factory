@@ -19,7 +19,7 @@ const factoryForKey = Symbol('mikro-orm-entity-factory:FactoryFor');
  * @returns TS class decorator function
  */
 export const FactoryFor = (entity: any, namespaceKey = '') => (target: any) => {
-  const entityName: string = new entity()?.constructor?.name;
+  const entityName: string = entity.name;
   Reflect.defineMetadata(factoryForKey, { entityName, namespaceKey }, target);
 };
 
