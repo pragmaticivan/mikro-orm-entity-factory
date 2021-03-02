@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.0.4](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.0.3...v0.0.4) (2021-03-02)
+
+
+### Bug Fixes
+
+* don't call the constructor when getting the name ([85a4132](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/85a413292d35399fe92711215f6a609587e6cc25))
+
 ### [0.0.3](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.0.2...v0.0.3) (2021-02-20)
 
 
