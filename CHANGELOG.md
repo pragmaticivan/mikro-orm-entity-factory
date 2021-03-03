@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.2.2](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.2.1...v0.2.2) (2021-03-03)
+
+
+### Bug Fixes
+
+* add conditional build before publishing ([ef71288](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/ef7128827faae8716ecef3d8ae61a923d95cdf3e))
+
 ### [0.2.1](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.2.0...v0.2.1) (2021-03-03)
 
 
