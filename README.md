@@ -484,6 +484,3 @@ To use this repository for development:
 3. You can then shell into the development container with `docker exec -it mikro-orm-entity-factory /bin/bash`.
 
 4. From within the container you can run the test suite with `npm run test`.
-
-5. npm cli is available for possible development.
-6. 
