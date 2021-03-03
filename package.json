@@ -13,6 +13,7 @@
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "test": "jest --ci --runInBand",
+    "test:debug": "ndb test",
     "test:ci": "ENVIRONMENT=ci jest --ci --runInBand",
     "test:coverage": "jest --coverage",
     "lint": "eslint . --ext .js,ts",

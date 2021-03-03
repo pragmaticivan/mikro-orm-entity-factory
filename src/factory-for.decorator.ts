@@ -1,11 +1,11 @@
 /** Private access symbol */
 import {
-  Constructor,
-  Dictionary,
-  EntityMetadata,
-  MetadataStorage,
-  EntitySchema,
-  AnyEntity,
+    Constructor,
+    Dictionary,
+    EntityMetadata,
+    MetadataStorage,
+    EntitySchema,
+    AnyEntity, MikroORM, wrap,
 } from '@mikro-orm/core';
 import { EntityFactory } from './entity-factory';
 import { EntityClass } from '@mikro-orm/core/typings';
@@ -38,15 +38,19 @@ export const FactoryFor = <T extends AnyEntity>(
     // const targetClass = target as unknown as Constructor<EntityFactory<T>>;
 
     const schema = new EntitySchema<
-    EntityFactory<EntityClass<T>>,
-    EntityClass<T>
-    >({
-      name: targetName,
-      extends: entityName,
+        EntityFactory<T>,
+        EntityClass<T>
+        >({
+        name: targetName,
+        extends: entityName,
+        class: target
     });
     const { meta } = schema.init();
     // eslint-disable-next-line no-underscore-dangle
-    const metadataStorage = entity.prototype.__helper.__em.getMetadata();
+    // const metadataStorage = entity.prototype.__helper.__em.getMetadata();
+    // const metadataStorage = target.prototype.getMetadata();
+    const metadataStorage = wrap(entity, true).__em.getMetadata();
+    // const metadataStorage = orm.getMetadata();
     metadataStorage.set(meta.className, meta);
 
   // const meta : EntityMetadata = MetadataStorage.getMetadataFromDecorator(schema);

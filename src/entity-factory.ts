@@ -1,4 +1,7 @@
-import { EntityManager } from '@mikro-orm/core';
+import {
+  EntityManager,
+  MetadataStorage
+} from '@mikro-orm/core';
 import * as Faker from 'faker';
 import { FactoryContainer } from './factory-container';
 
@@ -24,6 +27,13 @@ export abstract class EntityFactory<E> {
     protected readonly container: FactoryContainer,
     protected readonly faker: typeof Faker = Faker,
   ) {}
+
+  /**
+   * Gets the MetadataStorage.
+   */
+  getMetadata(): MetadataStorage {
+    return this.em.getMetadata();
+  }
 
   /**
    * @abstract
