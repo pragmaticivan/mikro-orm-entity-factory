@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.1.1...v0.2.0) (2021-03-03)
+
+
+### Features
+
+* automate npm publishing ([da61183](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/da611832f60ce027fb2696a3cb80905a72a6193a))
+
 ### [0.1.1](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.1.0...v0.1.1) (2021-03-03)
 
 
