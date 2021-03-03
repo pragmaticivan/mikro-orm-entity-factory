@@ -39,7 +39,10 @@ export class FactoryContainer {
       }
 
       /** Disallow duplicate setting */
-      const accessKey: string = `${entityName}_${namespaceKey}`;
+      const accessKey: string = FactoryContainer.getFactoryKey(
+        entityName,
+        namespaceKey,
+      );
       const existingValue = factories.get(accessKey);
       if (existingValue) {
         throw new Error(`
@@ -74,7 +77,7 @@ export class FactoryContainer {
     }
 
     const factory: EntityFactory<K> | undefined = this.factories.get(
-      `${entityName}_${namespaceKey}`,
+      FactoryContainer.getFactoryKey(entityName, namespaceKey),
     );
 
     if (factory !== undefined) {
@@ -87,5 +90,12 @@ export class FactoryContainer {
       on instantiation.
       Possible entities are: ${[...this.factories.keys()]}
     `);
+  }
+
+  private static getFactoryKey(
+    entityName: string,
+    namespaceKey: string,
+  ): string {
+    return `${entityName}_${namespaceKey}`;
   }
 }
