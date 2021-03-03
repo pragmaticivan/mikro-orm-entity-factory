@@ -7,8 +7,17 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: GoogleCloudPlatform/release-please-action@v2
+      - id: release
+        uses: GoogleCloudPlatform/release-please-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: mikro-orm-entity-factory
+      - id: publish
+        if: ${{ steps.release.outputs.release_created }}
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+      - if: steps.publish.outputs.type != 'none'
+        run: |
+          echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
