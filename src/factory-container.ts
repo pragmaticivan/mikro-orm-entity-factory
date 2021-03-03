@@ -65,10 +65,7 @@ export class FactoryContainer {
    * @returns the factory F from the factories map on the container
    */
   public getFactory<K>(entity: Type<K>, namespaceKey = ''): EntityFactory<K> {
-    const entityInstance = new ((entity as unknown) as {
-      new (...args: any[]): any;
-    })();
-    const entityName: string = entityInstance?.constructor?.name;
+    const entityName: string = entity.name;
     if (!entityName) {
       throw new Error(`
         Unable to find constructor name for entity parameter.
