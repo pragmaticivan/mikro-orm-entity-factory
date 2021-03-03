@@ -13,6 +13,16 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
           package-name: mikro-orm-entity-factory
+      - if: ${{ steps.release.outputs.release_created }}
+        uses: actions/checkout@v1
+      - if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - if: ${{ steps.release.outputs.release_created }}
+        run: npm install
+      - if: ${{ steps.release.outputs.release_created }}
+        run: npm run build
       - id: publish
         if: ${{ steps.release.outputs.release_created }}
         uses: JS-DevTools/npm-publish@v1
