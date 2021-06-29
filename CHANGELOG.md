@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.2.2...v0.3.0) (2021-06-29)
+
+
+### Features
+
+* tests multiple merge release ([2746dbb](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/2746dbb9c7ed89d9d02b5f0ec611085c95df998c))
+* tests multiple merge release step 2 ([8259ddb](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/8259ddbd5a3b228ee2496c73a6ad9dc41795ab04))
+
 ### [0.2.2](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.2.1...v0.2.2) (2021-03-03)
 
 
