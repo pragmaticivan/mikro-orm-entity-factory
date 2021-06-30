@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.3.0...v0.4.0) (2021-06-30)
+
+
+### Features
+
+* changes license to Apache2 ([de54389](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/de54389a693c121d1d537703dc7576a3ef9279a5))
+
 ## [0.3.0](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.2.2...v0.3.0) (2021-06-29)
 
 
