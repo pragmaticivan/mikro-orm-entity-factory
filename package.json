@@ -28,7 +28,7 @@
     "seeder",
     "faker"
   ],
-  "license": "ISC",
+  "license": "Apache 2",
   "files": [
     "lib"
   ],
