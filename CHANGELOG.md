@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.0](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.3.0...v1.0.0) (2022-04-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* update dependencies and move mikro as peer
+
+### Features
+
+* changes license to Apache2 ([de54389](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/de54389a693c121d1d537703dc7576a3ef9279a5))
+* update dependencies and move mikro as peer ([e576908](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/commit/e576908c4f2ed160d87596f172fd4ca0fab4f4dd))
+
 ## [0.3.0](https://www.github.com/pragmaticivan/mikro-orm-entity-factory/compare/v0.2.2...v0.3.0) (2021-06-29)
 
 
