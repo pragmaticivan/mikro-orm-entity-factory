@@ -25,6 +25,7 @@ export const getConnectionOrm = async () => MikroORM.init({
   password: 'example',
   dbName: 'postgres',
   debug: false,
+  allowGlobalContext: true,
   entities: [Book, Genre, Author],
 });
 
