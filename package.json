@@ -32,13 +32,14 @@
   "files": [
     "lib"
   ],
-  "dependencies": {
-    "faker": "5.4.0",
-    "@mikro-orm/core": "^4.4.3",
-    "@types/faker": "5.1.7"
+  "peerDependencies": {
+    "@mikro-orm/core": ">=5.1.2"
   },
   "devDependencies": {
-    "@mikro-orm/postgresql": "^4.4.3",
+    "faker": "5.4.0",
+    "@types/faker": "5.1.7",
+    "@mikro-orm/core": "^5.1.2",
+    "@mikro-orm/postgresql": "^5.1.2",
     "@types/jest": "26.0.20",
     "@types/node": "14.14.31",
     "@types/uuid": "^8.3.0",
