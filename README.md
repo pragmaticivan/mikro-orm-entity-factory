@@ -7,6 +7,8 @@
 <img src="https://img.shields.io/npm/dw/mikro-orm-entity-factory" alt="NPM Downloads" />
 </a>
 
+# This repository is retired. Please use https://mikro-orm.io/docs/seeding#using-entity-factories instead
+
 A module for saving bulk entities for E2E database testing.
 
 This module is a rewrite of the [typeorm-entity-factory](https://github.com/adamdubicki/typeorm-entity-factory) using [MikroORM](https://github.com/mikro-orm/mikro-orm).
